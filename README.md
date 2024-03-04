@@ -47,7 +47,7 @@ struct ClampStruct {
 ```
  With this workaround, all class/struct implement ClampProtocol can apply @Clamping to simplify the effort to write clamp function, and keep it interface clear.
 
-The detail about the implementation of @Clamping could be refer to :  [Clamping.swift](Sources/Clamping/Clamping.swift)
+The detail about the implementation of @Clamping could be refer to :  [Clamping.swift](Sources/SwiftClamping/Clamping.swift)
 
 ## References:
 
@@ -58,3 +58,6 @@ The detail about the implementation of @Clamping could be refer to :  [Clamping.
 [Swift: Why does a variable with a setter must also have a getter? - stackoverflow](https://stackoverflow.com/a/34677538/505763)
 
 [PropertyWrappers and protocol declaration? - stackoverflow](https://stackoverflow.com/a/57657870/505763)
+
+---
+<a href="https://www.buymeacoffee.com/chenhaiteng"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=chenhaiteng&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
