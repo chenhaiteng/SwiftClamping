@@ -1,5 +1,5 @@
 import XCTest
-@testable import Swift_Clamping
+@testable import SwiftClamping
 
 final class ClampingTests: XCTestCase {
     func testExample() throws {
