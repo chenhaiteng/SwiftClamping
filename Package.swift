@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "Clamping",
+    name: "Swift-Clamping",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Clamping",
-            targets: ["Clamping"]),
+            name: "Swift-Clamping",
+            targets: ["Swift-Clamping"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Clamping"),
+            name: "Swift-Clamping"),
         .testTarget(
-            name: "ClampingTests",
-            dependencies: ["Clamping"]),
+            name: "Swifrt-ClampingTests",
+            dependencies: ["Swift-Clamping"]),
     ]
 )

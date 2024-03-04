@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 @propertyWrapper
 public struct Clamping<T> where T:Comparable {
     private(set) var value: T
