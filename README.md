@@ -1,4 +1,5 @@
 # Swift-Clamping
+
 ## Purpose:
 1. For values that have upper and lower bound, provide a way to not write duplicate code.
 2. In swift, when one try to preprocess an property before apply it, it needs following code:
@@ -48,6 +49,44 @@ struct ClampStruct {
  With this workaround, all class/struct implement ClampProtocol can apply @Clamping to simplify the effort to write clamp function, and keep it interface clear.
 
 The detail about the implementation of @Clamping could be refer to :  [Clamping.swift](Sources/SwiftClamping/Clamping.swift)
+
+## Installation:
+### CocoaPods
+
+SwiftClamping is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SwiftClamping'
+```
+
+### Swift Package Manager
+#### - Add to Xcode
+
+1. File > Swift Packages > Add Package Dependency...
+2. Choose Project you want to add SwiftClamping
+3. Paste repository https://github.com/chenhaiteng/SwiftClamping.git
+4. Rules > Version: Up to Next Major 1.0.1
+It's can also apply Rules > Branch : Main to access latest code.
+
+**Note:** It might need to link SwiftClamping to your target maunally.
+
+1. Open *Project Editor* by tap on root of project navigator
+2. Choose the target you want to use SwiftClamping.
+3. Choose **Build Phases**, and expand **Link Binary With Libraries**
+4. Tap on **+** button, and choose SwiftClamping to add it.
+
+#### - Add to SPM package
+```swift
+dependencies: [
+    .package(url: "https://github.com/chenhaiteng/SwiftClamping.git", from: "1.0.1")
+],
+targets: [
+    .target(
+        name: "MyPackage",
+        dependencies: ["SwiftClamping"]),
+]
+```
 
 ## References:
 
