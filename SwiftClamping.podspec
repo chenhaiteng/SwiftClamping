@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftClamping'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A property wrapper to limit input range.'
 # s.swift_version:begin
   s.swift_version  = '5.9.0'
