@@ -9,8 +9,8 @@ import Foundation
 
 @propertyWrapper
 public struct Clamping<T> where T:Comparable {
-    private(set) var value: T
-    var range: ClosedRange<T>
+    private var value: T
+    private let range: ClosedRange<T>
     public var wrappedValue: T {
         get {
             return value
@@ -19,14 +19,6 @@ public struct Clamping<T> where T:Comparable {
             value = clamp(newValue)
         }
     }
-    
-    public var projectedValue: ClosedRange<T> {
-        get { range }
-        set {
-            range = newValue
-            value = clamp(value)
-        }
-      }
     
     private func clamp(_ v: T) -> T {
         max(min(v, range.upperBound), range.lowerBound)
