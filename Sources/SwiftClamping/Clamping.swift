@@ -7,32 +7,47 @@
 
 import Foundation
 
+private class RangeWrapper<Value: Comparable> {
+    var range : ClosedRange<Value>
+    init(_ range: ClosedRange<Value>) {
+        self.range = range
+    }
+    
+    func clamping(_ value: Value) -> Value {
+        max(min(value, range.upperBound), range.lowerBound)
+    }
+}
+
 @propertyWrapper
 public struct Clamping<T> where T:Comparable {
     private var value: T
-    private let range: ClosedRange<T>
+    private var valueRange: RangeWrapper<T>
     public var wrappedValue: T {
         get {
             return value
         }
         set {
-            value = clamp(newValue)
+            value = valueRange.clamping(newValue)
         }
     }
     
-    private func clamp(_ v: T) -> T {
-        max(min(v, range.upperBound), range.lowerBound)
+    public var projectedValue: ClosedRange<T> {
+        get {
+            valueRange.range
+        }
+        nonmutating set {
+            valueRange.range = newValue
+        }
     }
     
     public init(wrappedValue: T, _ range: ClosedRange<T>) {
-        self.range = range
-        value = wrappedValue // 1st phase, initialize properties.
-        value = clamp(wrappedValue) // 2nd phase, custom the value of property
+        self.valueRange = RangeWrapper(range)
+        value = valueRange.clamping(wrappedValue)
     }
     
     public init(wrappedValue: T, max: T, min: T) {
-        self.range = min...max
-        value = wrappedValue
-        value = clamp(wrappedValue)
+        self.valueRange = RangeWrapper(min...max)
+        value = valueRange.clamping(wrappedValue)
     }
 }
+
