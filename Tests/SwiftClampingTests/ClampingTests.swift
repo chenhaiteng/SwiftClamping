@@ -2,8 +2,13 @@ import XCTest
 @testable import SwiftClamping
 
 final class ClampingTests: XCTestCase {
+    
+    func clampingArg(@Clamping(0.0...1.0) _ arg: CGFloat) {
+        debugPrint("clamping \(arg), projected: \($arg)")
+    }
+    
     func testExample() throws {
-        
+        XCTAssertNoThrow(clampingArg(0.8))
         @Clamping(0...10) var clampedInt: Int = 0
         clampedInt = 100
         XCTAssertEqual(clampedInt, 10)
